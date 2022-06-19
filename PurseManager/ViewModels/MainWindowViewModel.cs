@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using MyBudgetManager.View;
 using PurseManager.ViewModels.Base;
 
@@ -30,6 +31,17 @@ namespace PurseManager.ViewModels
             window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             window.ShowDialog();
         }
+        #endregion
+
+        #region CloseAplicationCommand
+        public ICommand CloseApplicationCommand { get; }
+
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanOnCloseApplicationCommandExecute(object p) => true;//because always available
         #endregion
 
         #region MainWindow Title
