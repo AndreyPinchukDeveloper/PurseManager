@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Project\PurseManager\PurseManager\App.xaml
-31682900594
+3-2081968665
 
-15-395167713
+20-260177070
 214878206726
-View\ExpenseWindow.xaml;View\IncomeWindow.xaml;View\MainWindow.xaml;
+View\Windows\ExpenseWindow.xaml;View\Windows\IncomeWindow.xaml;View\Windows\MainWindow.xaml;
 
 False
 

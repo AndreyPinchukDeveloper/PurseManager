@@ -35,11 +35,9 @@ D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win-x64\n
 D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager.csproj.AssemblyReference.cache
-D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\MainWindow.g.cs
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\App.g.cs
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager_MarkupCompile.cache
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager_MarkupCompile.lref
-D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\MainWindow.baml
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager.g.resources
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager.GeneratedMSBuildEditorConfig.editorconfig
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager.AssemblyInfoInputs.cache
@@ -51,7 +49,10 @@ D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\refint\PurseManage
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager.pdb
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\PurseManager.genruntimeconfig.cache
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\ref\PurseManager.dll
-D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\ExpenseWindow.g.cs
-D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\IncomeWindow.g.cs
-D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\ExpenseWindow.baml
-D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\IncomeWindow.baml
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\ExpenseWindow.g.cs
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\IncomeWindow.g.cs
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\MainWindow.g.cs
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\ExpenseWindow.baml
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\IncomeWindow.baml
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\MainWindow.baml
+D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

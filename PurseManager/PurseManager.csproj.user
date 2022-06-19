@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\ExpenseWindow.xaml">
+    <Page Update="View\Windows\ExpenseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\IncomeWindow.xaml">
+    <Page Update="View\Windows\IncomeWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MainWindow.xaml">
+    <Page Update="View\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

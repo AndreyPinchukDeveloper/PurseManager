@@ -13,6 +13,7 @@ namespace PurseManager.Model.Data
         public DbSet<UserMoneyModel> UserMoneyModel { get; set; }
         public DbSet<ExpenseCategoryModel> ExpenseCategoryModel { get; set; }
         public DbSet<IncomeCategoryModel> IncomeCategoryModel { get; set; }
+
         public ApplicationContext()
         {
             Database.EnsureCreated();//if data base doesn't exist, this method create it
