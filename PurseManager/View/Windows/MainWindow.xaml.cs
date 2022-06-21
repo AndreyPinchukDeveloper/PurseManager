@@ -23,6 +23,7 @@ namespace MyBudgetManager
         public MainWindow()
         {
             InitializeComponent();
+            PurseManagerLibrary.GlobalConfig.InitializeConnections(PurseManagerLibrary.DatabaseType.Sql);
         }
     }
 }

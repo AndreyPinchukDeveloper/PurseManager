@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PurseManager.Model
+namespace PurseManager.Infrastructure.Commands
 {
-    public class IncomeCategoryModel
+    internal class NewExpenseCategory
     {
-        public List<string> IncomeList { get; set; }
     }
 }

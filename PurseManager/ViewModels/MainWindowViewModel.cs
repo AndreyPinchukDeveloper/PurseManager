@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using MyBudgetManager.View;
+using PurseManager.Infrastructure.Commands;
 using PurseManager.ViewModels.Base;
 
 namespace PurseManager.ViewModels
@@ -13,24 +9,28 @@ namespace PurseManager.ViewModels
     internal class MainWindowViewModel : ViewModel
     {
         #region Open_WPF_Windows
-        private void OpenExpenseWindow()
+        public ICommand OpenIncomeWindow { get; }
+        private void OnIncomeWindowCommandExecuted(object p)
         {
-            ExpenseWindow expenseMenuWindow = new ExpenseWindow();
-            OpenWindow(expenseMenuWindow);
-        }
-
-        private void OpenIncomeWindow()
-        {
-            IncomeWindow incomeWindow = new IncomeWindow();
-            OpenWindow(incomeWindow);
-        }
-
-        private void OpenWindow(Window window)
-        {
+            IncomeWindow window = new IncomeWindow();
             window.Owner = Application.Current.MainWindow;
             window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             window.ShowDialog();
         }
+
+        private bool OnOpenIncomeWindowCommandExecute(object p) => true;
+
+        public ICommand OpenExpenseWindow { get; }
+        private void OnExpenseWindowCommandExecuted(object p)
+        {
+            ExpenseWindow window = new ExpenseWindow();
+            window.Owner = Application.Current.MainWindow;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
+        }
+
+        private bool OnExpenseWindowCommandExecute(object p) => true;
+
         #endregion
 
         #region CloseAplicationCommand
@@ -69,36 +69,12 @@ namespace PurseManager.ViewModels
         }
         #endregion
 
-        #region Commands
-
-        #region Open_WPF_Windows_Commands
-
-        private LambdaCommand openExpenseMenuWindow;
-        public LambdaCommand OpenExpenseMenuWindowCommand
+        public MainWindowViewModel()
         {
-            get { return openExpenseMenuWindow ?? new LambdaCommand(obj => { OpenExpenditureWindow(); }); }
+            #region Commands
+            OpenIncomeWindow = new LambdaCommand(OnIncomeWindowCommandExecuted, OnOpenIncomeWindowCommandExecute);
+            OpenExpenseWindow = new LambdaCommand(OnExpenseWindowCommandExecuted, OnExpenseWindowCommandExecute);
+            #endregion
         }
-
-        private LambdaCommand openIncomeMenuWindow;
-        public LambdaCommand OpenRecieptWindowCommand
-        {
-            get { return openIncomeMenuWindow ?? new LambdaCommand(obj => { OpenRecieptWindow(); }); }
-        }
-        #endregion
-
-
-        #region CloseAplicationCommand
-        public ICommand CloseApplicationCommand { get; }
-
-        private void OnCloseApplicationCommandExecuted(object p)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private bool CanOnCloseApplicationCommandExecute(object p) => true;//because always available
-        #endregion
-
-
-        #endregion
     }
 }

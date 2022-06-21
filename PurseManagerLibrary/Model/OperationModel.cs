@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PurseManager.Model
+namespace PurseManagerLibrary.Model
 {
     public class OperationModel
     {
         public int Id { get; set; }
         public decimal ValueOfMoney { get; set; }
+        public decimal Amount { get; set; }
         public string NameOfChange { get; set; }
         public string Note { get; set; }
         public string FullName

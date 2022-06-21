@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PurseManager.Model
+namespace PurseManagerLibrary.Model
 {
-    public class UserMoneyModel
+    public class IncomeCategoryModel
     {
         public int Id { get; set; }
-        public decimal Amount { get; set; }
+        public List<string> IncomeList { get; set; }
     }
 }

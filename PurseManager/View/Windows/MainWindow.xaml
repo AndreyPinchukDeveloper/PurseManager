@@ -4,12 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:PurseManager.ViewModels"
-        xmlns:l="clr-namespace:PurseManager"
+        xmlns:cmd="clr-namespace:PurseManager.Infrastructure.Commands"
         Title="{Binding Title}" Height="400" Width="400">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <cmd:OpenExpenseWindowCommand x:Key="OpenExpenseWindowCommand"/>
+        <cmd:OpenIncomeWindowCommand x:Key="OpenIncomeWindowCommand"/>
+    </Window.Resources>
+    
 
     <Grid>
         <Grid.RowDefinitions>
@@ -73,7 +79,9 @@
             </TabItem>
         </TabControl>
 
-        <Button Content="Income" Margin="5,284,210,5" Grid.RowSpan="2"/>
-        <Button Content="Expense" Margin="210,284,5,5" Grid.RowSpan="2"/>
+        <Button Content="Income" Margin="5,284,210,5"
+                Grid.RowSpan="2" Command="{StaticResource OpenIncomeWindowCommand}"/>
+        <Button Content="Expense" Margin="210,284,5,5"
+                Grid.RowSpan="2" Command="{StaticResource OpenExpenseWindowCommand}"/>
     </Grid>
 </Window>

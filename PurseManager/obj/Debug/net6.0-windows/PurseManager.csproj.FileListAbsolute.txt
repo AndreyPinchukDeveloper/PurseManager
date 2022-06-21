@@ -56,3 +56,15 @@ D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\Expen
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\IncomeWindow.baml
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\View\Windows\MainWindow.baml
 D:\Project\PurseManager\PurseManager\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\PurseManager.dll.config
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\EntityFramework.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\Dapper.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\PurseManagerLibrary.dll
+D:\Project\PurseManager\PurseManager\bin\Debug\net6.0-windows\PurseManagerLibrary.pdb
