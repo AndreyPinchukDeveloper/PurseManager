@@ -1,5 +1,4 @@
 ﻿using BudgetManager.Data;
-using BudgetManagerLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyBudgetManager
+namespace BudgetManager.View.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HostoryOfOperationsWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HostoryOfOperationsWindow : Window
     {
-        public MainWindow()
+        public HostoryOfOperationsWindow()
         {
             InitializeComponent();
-            GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            DGrid.ItemsSource = BudgetManagerDataEntities.GetContext().HistoryOfOperations.ToList();
         }
-
     }
 }

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BudgetManagerDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ExpenseList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOfExpense" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HistoryOfOperations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOfOperation" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValueToChange" Type="money" Nullable="false" />
+          <Property Name="AmountOfUserMoney" Type="money" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="IncomeList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOfIncome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="spExpenseList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NameOfExpense" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="spHistoryOfOperations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NameOfOperations" Type="nvarchar" Mode="In" />
+          <Parameter Name="ValueToChange" Type="money" Mode="In" />
+          <Parameter Name="Notes" Type="nvarchar" Mode="In" />
+          <Parameter Name="AmountToChange" Type="money" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="spIncomeList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NameOfIncome" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="BudgetManagerDataModelStoreContainer">
+          <EntitySet Name="ExpenseList" EntityType="Self.ExpenseList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoryOfOperations" EntityType="Self.HistoryOfOperations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomeList" EntityType="Self.IncomeList" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BudgetManagerDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ExpenseList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOfExpense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HistoryOfOperations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOfOperation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValueToChange" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="AmountOfUserMoney" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IncomeList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOfIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BudgetManagerDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ExpenseList" EntityType="Self.ExpenseList" />
+          <EntitySet Name="HistoryOfOperations" EntityType="Self.HistoryOfOperations" />
+          <EntitySet Name="IncomeList" EntityType="Self.IncomeList" />
+          <FunctionImport Name="spExpenseList">
+            <Parameter Name="NameOfExpense" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spHistoryOfOperations">
+            <Parameter Name="NameOfOperations" Mode="In" Type="String" />
+            <Parameter Name="ValueToChange" Mode="In" Type="Decimal" />
+            <Parameter Name="Notes" Mode="In" Type="String" />
+            <Parameter Name="AmountToChange" Mode="In" Type="Decimal" />
+            <Parameter Name="Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spIncomeList">
+            <Parameter Name="NameOfIncome" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BudgetManagerDataModelStoreContainer" CdmEntityContainer="BudgetManagerDataEntities">
+          <EntitySetMapping Name="ExpenseList">
+            <EntityTypeMapping TypeName="BudgetManagerDataModel.ExpenseList">
+              <MappingFragment StoreEntitySet="ExpenseList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameOfExpense" ColumnName="NameOfExpense" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoryOfOperations">
+            <EntityTypeMapping TypeName="BudgetManagerDataModel.HistoryOfOperations">
+              <MappingFragment StoreEntitySet="HistoryOfOperations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameOfOperation" ColumnName="NameOfOperation" />
+                <ScalarProperty Name="ValueToChange" ColumnName="ValueToChange" />
+                <ScalarProperty Name="AmountOfUserMoney" ColumnName="AmountOfUserMoney" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IncomeList">
+            <EntityTypeMapping TypeName="BudgetManagerDataModel.IncomeList">
+              <MappingFragment StoreEntitySet="IncomeList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameOfIncome" ColumnName="NameOfIncome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spExpenseList" FunctionName="BudgetManagerDataModel.Store.spExpenseList" />
+          <FunctionImportMapping FunctionImportName="spHistoryOfOperations" FunctionName="BudgetManagerDataModel.Store.spHistoryOfOperations" />
+          <FunctionImportMapping FunctionImportName="spIncomeList" FunctionName="BudgetManagerDataModel.Store.spIncomeList" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

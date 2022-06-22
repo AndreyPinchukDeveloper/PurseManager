@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:BudgetManager.ViewModels"
+        xmlns:local ="clr-namespace:BudgetManager" 
         xmlns:cmd="clr-namespace:BudgetManager.Infrastructure.Commands"
         Title="{Binding Title}" Height="400" Width="400">
 
@@ -14,74 +15,43 @@
     <Window.Resources>
         <cmd:OpenExpenseWindowCommand x:Key="OpenExpenseWindowCommand"/>
         <cmd:OpenIncomeWindowCommand x:Key="OpenIncomeWindowCommand"/>
+        <cmd:OpenHistoryWindowCommand x:Key="OpenHistoryWindowCommand"/>
+        <cmd:OpenSettingsWindowCommand x:Key="OpenSettingsWindowCommand"/>
+        
     </Window.Resources>
-    
+
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <TabControl Grid.Row="0">
-            <TabItem Name="Main">
+        <Grid x:Name="SettingsAndHistoryButtons" Grid.Row="0">
+            <Button Content="Settings" Margin="323,5,5,54"
+                    Command="{StaticResource OpenSettingsWindowCommand}"/>
 
-                <TabItem.Header>
-                    <TextBlock Text="Main window"/>
-                </TabItem.Header>
+            <Button Content="History" Margin="323,40,5,19"
+                    Command="{StaticResource OpenHistoryWindowCommand}"/>
 
-                <ListView>
-                    <TextBlock x:Name="AmountOfUserMoney" Margin="80,95" 
-                              Text ="0" Height="30" Width="200" FontSize="20" HorizontalAlignment="Stretch" FontWeight="Normal" TextAlignment="Center" />
-                </ListView>
+            
 
-            </TabItem>
+        </Grid>
 
-            <TabItem Name="History">
-                <TabItem.Header>
-                    <TextBlock Text="History of operation"/>
-                </TabItem.Header>
+        <Grid Grid.Row="1">
+            <TextBlock x:Name="UserMoney" Height="50" Width="170"
+                       Margin="115,0,115,154"/>
+        </Grid>
 
-                <!--information from database-->
-                <ListView>
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Category" Width="105"/>
-                            <GridViewColumn Header="Change" Width="90"/>
-                            <GridViewColumn Header="Note" Width="105"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </TabItem>
+        <Grid x:Name="IncomeAndExpenseButtons" Grid.Row="2">
 
-            <TabItem Name="Settings">
+            <Button Content="Income" Margin="5,0,210,5"
+                Command="{StaticResource OpenIncomeWindowCommand}"/>
+            <Button Content="Expense" Margin="210,0,5,5"
+                Command="{StaticResource OpenExpenseWindowCommand}"/>
+        </Grid>
 
-                <TabItem.Header>
-                    <TextBlock Text="Settings"/>
-                </TabItem.Header>
-                <StackPanel Grid.Row="0" Orientation="Vertical"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Width="200" Height="150">
-
-                    <TextBlock Text="Menu" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Add new income category" 
-                               HorizontalAlignment="Left" Margin="0,5,0,0"
-                               />
-                    <TextBox Text=""/>
-                    <TextBlock Text="Add new exense category" 
-                               HorizontalAlignment="Left"
-                               />
-                    <TextBox Text=""/>
-                    <Button Height="20" Width="70" 
-                            Content="Add" Margin="0,5,0,0"/>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
-
-        <Button Content="Income" Margin="5,284,210,5"
-                Grid.RowSpan="2" Command="{StaticResource OpenIncomeWindowCommand}"/>
-        <Button Content="Expense" Margin="210,284,5,5"
-                Grid.RowSpan="2" Command="{StaticResource OpenExpenseWindowCommand}"/>
     </Grid>
 </Window>

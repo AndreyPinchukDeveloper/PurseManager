@@ -13,19 +13,25 @@ namespace BudgetManager.Infrastructure.Commands
 {
     internal class CreateIncome:Command
     {
-        IncomeWindow incomeWindow = new IncomeWindow();
+        //IncomeWindow incomeWindow = new IncomeWindow();
         public override bool CanExecute(object parameter) => true;
 
         public override void Execute(object parameter)
         {
+            IncomeWindow incomeWindow = new IncomeWindow();
+            OperationModel model = new OperationModel(
+                    incomeWindow.AmountOfMoney.Text,
+                    incomeWindow.cbIncomeCategory.Text,
+                    incomeWindow.Note.Text);
+
+            GlobalConfig.Connection.CreateChange(model);
+
+            incomeWindow.AmountOfMoney.Text = "0";
+            incomeWindow.cbIncomeCategory.Text = "";
+            incomeWindow.Note.Text = "";
             if (ValidateForm())
             {
-                OperationModel model = new OperationModel(incomeWindow.AmountOfMoney.Text, incomeWindow.cbIncomeCategory.Text, incomeWindow.cbIncomeCategory.Text);
-                GlobalConfig.Connection.CreateChange(model);
-
-                incomeWindow.AmountOfMoney.Text = "0";
-                incomeWindow.cbIncomeCategory.Text = "";
-                incomeWindow.Note.Text = "";
+                
             }
             else
             {
@@ -33,8 +39,10 @@ namespace BudgetManager.Infrastructure.Commands
             }
         }
 
+
         private bool ValidateForm()
         {
+            IncomeWindow incomeWindow = new IncomeWindow();
             bool output = true;
             decimal amountOfMoney = 0;
             bool validAmountToIncrement = decimal.TryParse(incomeWindow.AmountOfMoney.Text, out amountOfMoney);

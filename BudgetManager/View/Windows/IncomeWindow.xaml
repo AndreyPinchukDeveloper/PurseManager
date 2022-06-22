@@ -3,13 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyBudgetManager.View" xmlns:vm="clr-namespace:BudgetManager.ViewModels"
+        xmlns:local="clr-namespace:MyBudgetManager.View" 
+        xmlns:vm="clr-namespace:BudgetManager.ViewModels" 
+        xmlns:cmd="clr-namespace:BudgetManager.Infrastructure.Commands"
         mc:Ignorable="d"
         Title="IncomeWindow" Height="250" Width="250">
+    
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    
+
+    <Window.Resources>
+        <cmd:CreateIncome x:Key="CreateIncome"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -29,6 +36,7 @@
             <TextBox x:Name="Note" Text=""/>
         </StackPanel>
 
-        <Button Grid.Row="1" Content="Add income"/>
+        <Button Grid.Row="1" Content="Add income" 
+                 Click="Button_Click"/>
     </Grid>
 </Window>

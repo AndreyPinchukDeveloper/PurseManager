@@ -3,6 +3,8 @@ using System.Windows.Input;
 using MyBudgetManager.View;
 using BudgetManager.Infrastructure.Commands;
 using BudgetManager.ViewModels.Base;
+using BudgetManagerLibrary;
+using BudgetManagerLibrary.Model;
 
 namespace BudgetManager.ViewModels
 {
@@ -31,29 +33,30 @@ namespace BudgetManager.ViewModels
 
         private bool OnExpenseWindowCommandExecute(object p) => true;
 
+        public ICommand OpenSettingsCommand { get; }
+        private void OnSettingsWindowCommandExecuted(object p)
+        {
+            IncomeWindow window = new IncomeWindow();
+            window.Owner = Application.Current.MainWindow;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
+        }
+
+        private bool OnOpenSettingsWindowCommandExecute(object p) => true;
+
+        public ICommand OpenHistoryWindow { get; }
+        private void OnHistoryCommandExecuted(object p)
+        {
+            IncomeWindow window = new IncomeWindow();
+            window.Owner = Application.Current.MainWindow;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
+        }
+
+        private bool OnOpenHistoryWindowCommandExecute(object p) => true;
+
         #endregion
 
-        //#region CreateExpenseCommand
-        //public ICommand CreateExpense { get; }
-        //ExpenseWindow expenseWindow = new ExpenseWindow();
-        //private void OnCreateExpenseCommandExecuted(object p)
-        //{
-        //    createIncome.
-        //}
-        //private bool ValidateForm()
-        //{
-        //    bool output = true;
-        //    decimal amountOfMoney = 0;
-        //    bool validAmountToIncrement = decimal.TryParse(expenseWindow.AmountOfMoney.Text, out amountOfMoney);
-
-        //    if (!validAmountToIncrement)//we need only negative value and only numbers
-        //    {
-        //        output = false;
-        //    }
-        //    return output;
-        //}
-        //private bool OnOpenCreateExpenseCommandExecute(object p) => true;
-        //#endregion
         #region ExpenseCommand
         public ICommand CreateExpense { get; }
         CreateIncome createExpense;
@@ -66,36 +69,44 @@ namespace BudgetManager.ViewModels
 
         #region IncomeCommand
         public ICommand CreateIncome { get; }
-        CreateIncome createIncome;
+        //CreateIncome createIncome;
         private void OnCreateIncomeCommandExecuted(object p)
         {
-            createIncome.Execute(p);
+            IncomeWindow incomeWindow = new IncomeWindow();
+            if(ValidateForm())
+            {
+                OperationModel model = new OperationModel(
+                    incomeWindow.AmountOfMoney.Text,
+                    incomeWindow.cbIncomeCategory.Text,
+                    incomeWindow.Note.Text);
+
+                GlobalConfig.Connection.CreateChange(model);
+
+                incomeWindow.AmountOfMoney.Text = "0";
+                incomeWindow.cbIncomeCategory.Text = "";
+                incomeWindow.Note.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information, please check it and try again !");
+            }
+        }
+        private bool ValidateForm()
+        {
+            IncomeWindow incomeWindow = new IncomeWindow();
+            bool output = true;
+            decimal amountOfMoney = 0;
+            bool validAmountToIncrement = decimal.TryParse(incomeWindow.AmountOfMoney.Text, out amountOfMoney);
+
+            if (!validAmountToIncrement)//we need only negative value and only numbers
+            {
+                output = false;
+            }
+            return output;
         }
         private bool OnOpenCreateIncomeCommandExecute(object p) => true;
         #endregion
-        //#region CreateIncomeCommand
-        //public ICommand CreateIncome { get; }
-        //IncomeWindow incomeWindow = new IncomeWindow();
-        //private void OnCreateIncomeCommandExecuted(object p)
-        //{
-        //    if (ValidateForm())
-        //    {
-        //        OperationModel model = new OperationModel(incomeWindow.AmountOfMoney.Text, incomeWindow.cbIncomeCategory.Text, incomeWindow.Note.Text);
-        //        GlobalConfig.Connection.CreateChange(model);
-
-        //        incomeWindow.AmountOfMoney.Text = "0";
-        //        incomeWindow.cbIncomeCategory.Text = "";
-        //        incomeWindow.Note.Text = "";
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("This form has invalid information, please check it and try again !");
-        //    }
-        //}
-        //private bool OnOpenCreateIncomeCommandExecute(object p) => true;
-
-
-        //#endregion
+        
 
         #region CloseAplicationCommand
         public ICommand CloseApplicationCommand { get; }
@@ -139,6 +150,8 @@ namespace BudgetManager.ViewModels
 
             OpenIncomeWindow = new LambdaCommand(OnIncomeWindowCommandExecuted, OnOpenIncomeWindowCommandExecute);
             OpenExpenseWindow = new LambdaCommand(OnExpenseWindowCommandExecuted, OnExpenseWindowCommandExecute);
+            OpenHistoryWindow = new LambdaCommand(OnHistoryCommandExecuted, OnOpenHistoryWindowCommandExecute);
+            OpenSettingsCommand = new LambdaCommand(OnSettingsWindowCommandExecuted, OnOpenSettingsWindowCommandExecute);
             CreateExpense = new LambdaCommand(OnCreateExpenseCommandExecuted, OnOpenCreateExpenseCommandExecute);
             CreateIncome = new LambdaCommand(OnCreateIncomeCommandExecuted, OnOpenCreateIncomeCommandExecute);
 

@@ -30,5 +30,18 @@ namespace BudgetManagerLibrary.Model
             decimal.TryParse(valueOfMoney, out amountOfMoney);
             ValueOfMoney = amountOfMoney;
         }
+
+        public OperationModel(string valueOfMoney, string nameOfChange, string amount, string note)
+        {
+            NameOfChange = nameOfChange;
+            Note = note;
+
+            decimal amountOfMoney = 0;
+            decimal.TryParse(valueOfMoney, out amountOfMoney);
+            ValueOfMoney = amountOfMoney;
+
+            decimal.TryParse(amount, out amountOfMoney);
+            Amount = amountOfMoney;
+        }
     }
 }
