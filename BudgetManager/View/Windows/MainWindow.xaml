@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:BudgetManager.ViewModels"
         xmlns:local ="clr-namespace:BudgetManager" 
         xmlns:cmd="clr-namespace:BudgetManager.Infrastructure.Commands"
-        Title="{Binding Title}" Height="400" Width="400">
+        Title="{Binding Title}" Height="400" Width="400" AllowsTransparency="True" WindowStyle="None">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -17,32 +17,38 @@
         <cmd:OpenIncomeWindowCommand x:Key="OpenIncomeWindowCommand"/>
         <cmd:OpenHistoryWindowCommand x:Key="OpenHistoryWindowCommand"/>
         <cmd:OpenSettingsWindowCommand x:Key="OpenSettingsWindowCommand"/>
-        
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
     </Window.Resources>
 
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="120"/>
 
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <Grid x:Name="SettingsAndHistoryButtons" Grid.Row="0">
-            <Button Content="Settings" Margin="323,5,5,54"
+            <Button Content="Settings" Margin="323,5,5,85"
                     Command="{StaticResource OpenSettingsWindowCommand}"/>
 
-            <Button Content="History" Margin="323,40,5,19"
+            <Button Content="History" Margin="323,40,5,47"
                     Command="{StaticResource OpenHistoryWindowCommand}"/>
+            <Button Content="Close app" Margin="323,78,5,9"
+                    Command="{StaticResource CloseApplicationCommand}"/>
 
-            
 
         </Grid>
 
         <Grid Grid.Row="1">
-            <TextBlock x:Name="UserMoney" Height="50" Width="170"
-                       Margin="115,0,115,154"/>
+            <TextBlock x:Name="UserMoney" Width="170"
+                       Margin="0,26,0,120" HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+            <Label Content="Your money :" HorizontalAlignment="Center" 
+                   VerticalAlignment="Top"/>
+
+
         </Grid>
 
         <Grid x:Name="IncomeAndExpenseButtons" Grid.Row="2">

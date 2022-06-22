@@ -29,7 +29,9 @@
                     Width="200" Height="130">
 
             <TextBlock Text="Category"/>
-            <ComboBox x:Name="cbIncomeCategory" Text=""/>
+            <ComboBox x:Name="cbIncomeCategory"
+                      DisplayMemberPath="NameOfIncome"
+                      ItemsSource="{Binding}" SelectedValuePath="Id"/>
             <TextBlock Text="Amount of money"/>
             <TextBox x:Name="AmountOfMoney" Text=""/>
             <TextBlock Text="Note"/>

@@ -1,4 +1,5 @@
-﻿using BudgetManagerLibrary;
+﻿using BudgetManager.Data;
+using BudgetManagerLibrary;
 using BudgetManagerLibrary.Model;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,20 @@ namespace MyBudgetManager.View
     /// </summary>
     public partial class IncomeWindow : Window
     {
+
         public IncomeWindow()
         {
             InitializeComponent();
+            ComboBoxIncome();
+        }
 
+        public List<IncomeList> Income { get; set; }
+        private void ComboBoxIncome()
+        {
+            PurseDatabaseEntities data = new PurseDatabaseEntities();
+            var item = data.IncomeList.ToList();
+            Income = item;
+            DataContext = Income;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,10 +61,9 @@ namespace MyBudgetManager.View
 
         private bool ValidateForm()
         {
-            IncomeWindow incomeWindow = new IncomeWindow();
             bool output = true;
             decimal amountOfMoney = 0;
-            bool validAmountToIncrement = decimal.TryParse(incomeWindow.AmountOfMoney.Text, out amountOfMoney);
+            bool validAmountToIncrement = decimal.TryParse(AmountOfMoney.Text, out amountOfMoney);
 
             if (!validAmountToIncrement)//we need only negative value and only numbers
             {

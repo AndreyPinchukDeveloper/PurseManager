@@ -25,7 +25,7 @@
                    HorizontalAlignment="Center"/>
         
         <Button Grid.Row="4" Width="100" Margin="5"
-                Content="Create"/>
+                Content="Create" Click="Button_Click"/>
 
         <TextBox x:Name="NewIncomeCategory" Grid.Row="3" 
                  Margin="56,0,56,0"/>
@@ -37,7 +37,7 @@
                  Margin="56,0,56,0"/>
 
         <Button Grid.Row="7" Width="100" Margin="5"
-                Content="Create"/>
+                Content="Create" Click="Button_Click_1"/>
 
 
     </Grid>

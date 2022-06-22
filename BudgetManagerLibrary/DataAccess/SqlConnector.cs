@@ -12,7 +12,7 @@ namespace BudgetManagerLibrary.DataAccess
         /// </summary>
         public OperationModel CreateChange(OperationModel model)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("BudgetManagerData")))
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("PurseDatabase")))
             {
                 var p = new DynamicParameters();
                 p.Add("@NameOfOperations", model.NameOfChange);
@@ -28,10 +28,10 @@ namespace BudgetManagerLibrary.DataAccess
 
         public ExpenseCategoryModel CreateChange(ExpenseCategoryModel model)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("BudgetManagerData")))
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("PurseDatabase")))
             {
                 var p = new DynamicParameters();
-                p.Add("@NameOfExpense", model.ExpenseList);
+                p.Add("@NameOfExpense", model.ExpenseCategory);
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
                 connection.Execute("dbo.spExpenseList", p, commandType: CommandType.StoredProcedure);
                 model.Id = p.Get<int>("@Id");
@@ -41,15 +41,15 @@ namespace BudgetManagerLibrary.DataAccess
 
         public IncomeCategoryModel CreateChange(IncomeCategoryModel model)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("BudgetManagerData")))
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("PurseDatabase")))
             {
                 var p = new DynamicParameters();
-                p.Add("@NameOfIncome", model.IncomeList);
+                p.Add("@NameOfIncome", model.IncomeCategory);
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
                 connection.Execute("dbo.spIncomeList", p, commandType: CommandType.StoredProcedure);
                 model.Id = p.Get<int>("@Id");
                 return model;
             }
         }
-    }
+    }   
 }

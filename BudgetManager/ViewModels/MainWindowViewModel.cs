@@ -154,7 +154,7 @@ namespace BudgetManager.ViewModels
             OpenSettingsCommand = new LambdaCommand(OnSettingsWindowCommandExecuted, OnOpenSettingsWindowCommandExecute);
             CreateExpense = new LambdaCommand(OnCreateExpenseCommandExecuted, OnOpenCreateExpenseCommandExecute);
             CreateIncome = new LambdaCommand(OnCreateIncomeCommandExecuted, OnOpenCreateIncomeCommandExecute);
-
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanOnCloseApplicationCommandExecute);
             #endregion
         }
     }

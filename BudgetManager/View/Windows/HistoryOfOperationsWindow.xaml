@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BudgetManager.View.Windows"
+        xmlns:q="clr-namespace:BudgetManager.Data"
         mc:Ignorable="d"
         Title="HostoryOfOperationsWindow" Height="400" Width="500">
     <Grid>
@@ -14,7 +15,7 @@
 
         <DataGrid x:Name="DGrid" Grid.Row="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding HistoryOfOperations.AmountOfMoney}"/>
+                <DataGridTextColumn Binding="{Binding HistoryOfOperations}"/>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -98,14 +98,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BaseDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data\BaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Data\ExpenseList.cs">
-      <DependentUpon>BaseDBModel.tt</DependentUpon>
+      <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\HistoryOfOperations.cs">
-      <DependentUpon>BaseDBModel.tt</DependentUpon>
+      <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\IncomeList.cs">
-      <DependentUpon>BaseDBModel.tt</DependentUpon>
+      <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Commands\OpenHistoryWindowCommand.cs" />
     <Compile Include="Infrastructure\Commands\OpenSettingsWindowCommand.cs" />
@@ -161,6 +176,13 @@
     <None Include="Data\BaseDBModel.edmx.diagram">
       <DependentUpon>BaseDBModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Data\BaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\BaseModel.edmx.diagram">
+      <DependentUpon>BaseModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -180,6 +202,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BaseDBModel.edmx</DependentUpon>
       <LastGenOutput>BaseDBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\BaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BaseModel.edmx</DependentUpon>
+      <LastGenOutput>BaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\BaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BaseModel.edmx</DependentUpon>
+      <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
     <Content Include="Data\PurseDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

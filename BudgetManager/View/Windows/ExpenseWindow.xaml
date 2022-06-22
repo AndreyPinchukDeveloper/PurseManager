@@ -18,13 +18,16 @@
                     Width="200" Height="130">
 
             <TextBlock Text="Category"/>
-            <ComboBox x:Name="cbExpenseCategory" Text=""/>
+            <ComboBox x:Name="cbExpenseCategory" ItemsSource="{Binding}"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="NameOfExpense"
+                      />
             <TextBlock Text="Amount of money"/>
             <TextBox x:Name="AmountOfMoney" Text=""/>
             <TextBlock Text="Note"/>
             <TextBox x:Name="Note" Text=""/>
         </StackPanel>
 
-        <Button Grid.Row="1" Content="Add expense"/>
+        <Button Grid.Row="1" Content="Add expense" Click="Button_Click"/>
     </Grid>
 </Window>

@@ -17,7 +17,7 @@ namespace BudgetManager.Data
         public int Id { get; set; }
         public string NameOfOperation { get; set; }
         public decimal ValueToChange { get; set; }
-        public decimal AmountOfUserMoney { get; set; }
+        public decimal AmountOfMoney { get; set; }
         public string Notes { get; set; }
     }
 }

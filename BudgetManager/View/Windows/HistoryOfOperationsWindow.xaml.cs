@@ -23,7 +23,7 @@ namespace BudgetManager.View.Windows
         public HostoryOfOperationsWindow()
         {
             InitializeComponent();
-            DGrid.ItemsSource = BudgetManagerDataEntities.GetContext().HistoryOfOperations.ToList();
+            DGrid.ItemsSource = PurseDatabaseEntities.GetInstance().HistoryOfOperations.ToList();
         }
     }
 }

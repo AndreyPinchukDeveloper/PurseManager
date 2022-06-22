@@ -1,7 +1,9 @@
 ﻿using BudgetManager.Data;
 using BudgetManagerLibrary;
+using BudgetManagerLibrary.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +28,21 @@ namespace MyBudgetManager
         {
             InitializeComponent();
             GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            S();
         }
+
+        public void S()
+        {
+            using (SqlConnection connection = new SqlConnection(GlobalConfig.ConnectionString("PurseDatabase")))
+            {
+                string commander = "SELECT SUM([ValueToChange]) FROM [HistoryOfOperations]";
+                SqlCommand command = new SqlCommand(commander, connection);
+                connection.Open();
+                object sum = command.ExecuteScalar();
+                UserMoney.Text = sum.ToString();
+            }
+        }
+        
 
     }
 }
