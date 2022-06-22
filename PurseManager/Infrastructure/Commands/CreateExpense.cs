@@ -1,7 +1,7 @@
 ﻿using MyBudgetManager.View;
-using PurseManager.Infrastructure.Commands.Base;
-using PurseManagerLibrary;
-using PurseManagerLibrary.Model;
+using BudgetManager.Infrastructure.Commands.Base;
+using BudgetManagerLibrary;
+using BudgetManagerLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PurseManager.Infrastructure.Commands
+namespace BudgetManager.Infrastructure.Commands
 {
     internal class CreateExpense:Command
     {
-        ExpenseWindow expenseWindow = new ExpenseWindow();
+        //ExpenseWindow expenseWindow = new ExpenseWindow();
         public override bool CanExecute(object? parameter) => true;
 
         public override void Execute(object? parameter)
         {
-            if (ValidateForm())
+            /*if (ValidateForm())
             {
                 OperationModel model = new OperationModel(expenseWindow.AmountOfMoney.Text, expenseWindow.cbExpenseCategory.Text, expenseWindow.Note.Text);
                 GlobalConfig.Connection.CreateChange(model);
@@ -30,10 +30,10 @@ namespace PurseManager.Infrastructure.Commands
             else
             {
                 MessageBox.Show("This form has invalid information, please check it and try again !");
-            }
+            }*/
         }
 
-        private bool ValidateForm()
+        /*private bool ValidateForm()
         {
             bool output = true;
             decimal amountOfMoney = 0;
@@ -44,6 +44,6 @@ namespace PurseManager.Infrastructure.Commands
                 output = false;
             }
             return output;
-        }
+        }*/
     }
 }

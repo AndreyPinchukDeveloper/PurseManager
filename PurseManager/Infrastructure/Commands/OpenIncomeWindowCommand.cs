@@ -1,5 +1,5 @@
 ﻿using MyBudgetManager.View;
-using PurseManager.Infrastructure.Commands.Base;
+using BudgetManager.Infrastructure.Commands.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PurseManager.Infrastructure.Commands
+namespace BudgetManager.Infrastructure.Commands
 {
     internal class OpenIncomeWindowCommand:Command
     {

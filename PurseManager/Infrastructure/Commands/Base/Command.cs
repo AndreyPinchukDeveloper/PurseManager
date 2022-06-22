@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace PurseManager.Infrastructure.Commands.Base
+namespace BudgetManager.Infrastructure.Commands.Base
 {
     public abstract class Command : ICommand
     {

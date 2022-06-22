@@ -1,7 +1,7 @@
 ﻿using MyBudgetManager.View;
-using PurseManager.Infrastructure.Commands.Base;
-using PurseManagerLibrary;
-using PurseManagerLibrary.Model;
+using BudgetManager.Infrastructure.Commands.Base;
+using BudgetManagerLibrary;
+using BudgetManagerLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PurseManager.Infrastructure.Commands
+namespace BudgetManager.Infrastructure.Commands
 {
     internal class CreateIncome:Command
     {

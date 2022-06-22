@@ -1,4 +1,4 @@
-﻿using PurseManagerLibrary.Model;
+﻿using BudgetManagerLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PurseManagerLibrary.DataAccess
+namespace BudgetManagerLibrary.DataAccess
 {
     public static class TextConnectorProcessor
     {

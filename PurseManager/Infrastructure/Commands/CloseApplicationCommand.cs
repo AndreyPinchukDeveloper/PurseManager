@@ -1,7 +1,7 @@
-﻿using PurseManager.Infrastructure.Commands.Base;
+﻿using BudgetManager.Infrastructure.Commands.Base;
 using System.Windows;
 
-namespace PurseManager.Infrastructure.Commands
+namespace BudgetManager.Infrastructure.Commands
 {
     internal class CloseApplicationCommand : Command
     {
