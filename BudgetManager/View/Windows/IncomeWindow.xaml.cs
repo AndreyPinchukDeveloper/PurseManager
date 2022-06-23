@@ -1,19 +1,9 @@
 ﻿using BudgetManager.Data;
 using BudgetManagerLibrary;
 using BudgetManagerLibrary.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MyBudgetManager.View
 {
@@ -52,6 +42,8 @@ namespace MyBudgetManager.View
                 AmountOfMoney.Text = "0";
                 cbIncomeCategory.Text = "";
                 Note.Text = "";
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.UpdateUserMoneyData();
             }
             else
             {

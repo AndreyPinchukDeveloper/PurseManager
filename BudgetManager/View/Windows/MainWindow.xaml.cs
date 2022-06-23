@@ -1,21 +1,6 @@
-﻿using BudgetManager.Data;
-using BudgetManagerLibrary;
-using BudgetManagerLibrary.Model;
-using System;
-using System.Collections.Generic;
+﻿using BudgetManagerLibrary;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyBudgetManager
 {
@@ -28,10 +13,10 @@ namespace MyBudgetManager
         {
             InitializeComponent();
             GlobalConfig.InitializeConnections(DatabaseType.Sql);
-            S();
+            UpdateUserMoneyData();
         }
 
-        public void S()
+        public void UpdateUserMoneyData()
         {
             using (SqlConnection connection = new SqlConnection(GlobalConfig.ConnectionString("PurseDatabase")))
             {
