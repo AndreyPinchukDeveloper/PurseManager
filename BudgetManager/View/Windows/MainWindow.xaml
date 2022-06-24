@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:BudgetManager.ViewModels"
-        xmlns:local ="clr-namespace:BudgetManager" 
+        xmlns:local ="clr-namespace:BudgetManager"
         xmlns:cmd="clr-namespace:BudgetManager.Infrastructure.Commands"
         Title="{Binding Title}" Height="400" Width="400" AllowsTransparency="True" WindowStyle="None">
 
@@ -30,12 +30,12 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="SettingsAndHistoryButtons" Grid.Row="0">
-            <Button Content="Settings" Margin="323,5,5,85"
+            <Button Content="Settings" Margin="289,5,5,83"
                     Command="{StaticResource OpenSettingsWindowCommand}"/>
 
-            <Button Content="History" Margin="323,40,5,47"
+            <Button Content="History" Margin="289,41,5,47"
                     Command="{StaticResource OpenHistoryWindowCommand}"/>
-            <Button Content="Close app" Margin="323,78,5,9"
+            <Button Content="Close app" Margin="289,78,5,10"
                     Command="{StaticResource CloseApplicationCommand}"/>
 
 
@@ -43,10 +43,10 @@
 
         <Grid Grid.Row="1">
             <TextBlock x:Name="UserMoney" Width="170"
-                       Margin="0,26,0,120" HorizontalAlignment="Center"
+                       Margin="0,37,0,109" HorizontalAlignment="Center"
                        TextAlignment="Center"/>
             <Label Content="Your money :" HorizontalAlignment="Center" 
-                   VerticalAlignment="Top"/>
+                   VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
 
 
         </Grid>
